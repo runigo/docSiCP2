@@ -1,0 +1,80 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{SiCP2}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+SiCP2 possède une interface graphique permettant de modifier les paramètres à l'aide de la souris.
+%
+\subsection{Panneau de droite}
+%
+Ce panneau possède cinq boutons rotatifs et 17 boutons "radio". La rotation s'effectue en plaçant le pointeur de la souris sur l'un des boutons rotatif et en actionnant la molette. La sélection d'un bouton radio s'effectue en cliquant sur celui-ci. 
+%
+%
+\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+	\item {\bf Couplage} : change le couplage élastique entre les pendules
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+		\item Périodique : couple le premier pendule au dernier
+		\item Libre : libère le premier et le dernier pendule
+		\item Fixe : fixe le premier et le dernier pendule
+		\item Mixte : fixe le premier et libère le dernier pendule
+	\end{itemize}
+	\item {\bf Dissipation} : change le frotement visqueux sur les pendules
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+		\item Uniforme : installe un frottement visqueux uniforme
+		\item Nulle : anulle le frottement visqueux
+		\item Extrémité : installe un frottement visqueux croissant sur les derniers pendules (1/6 de la chaîne)
+	\end{itemize}
+	\item {\bf Josephson} : change l'amplitude du courant josephson
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+		\item Marche : démarre le courant josephson
+		\item Arrêt : arrête le courant josephson
+		\item Droite / Gauche : change le sens du courant josephson
+	\end{itemize}
+	\item {\bf Amplitude} : change l'amplitude du moteur périodique
+	\item {\bf Fréquence} : change la fréquence du moteur périodique
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+		\item Arrêt : arrête le moteur périodique
+		\item Sinus : démarre le moteur sinusoïdale
+		\item Carré : démarre le moteur carré
+		\item Impulsion : démarre le moteur sinusoïdale et l'arrête après une période
+	\end{itemize}
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+		\item FLuxon : ajoute un déphasage de 2$\pi$ au premier pendule. Le fluxon n'apparaît pas si les extrémités sont libres.
+		\item Anti. F : retranche un déphasage de 2$\pi$ au premier pendule
+	\end{itemize}
+\end{itemize}
+%
+%
+\subsection{Panneau du bas}
+%
+La sélection d'un bouton radio s'effectue en cliquant sur celui-ci. 
+%
+%
+\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+	\item Rotation : démarre la rotation du point de vue
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+		\item rotation vers la droite
+		\item arrête la rotation
+		\item rotation vers la gauche
+	\end{itemize}
+	\item Simulation : contrôle la rapidité de la simulation
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+		\item ralentie la simulation
+		\item arrête / démarre la simulation
+		\item temps réel
+		\item accélère la simulation
+	\end{itemize}
+	\item Initialisation : Réinitialise le système
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+		\item réinitialisation de la position des pendules
+		\item réinitialisation des paramètres et du nombre de pendules
+	\end{itemize}
+\end{itemize}
+%
+\subsection{Panneau central}
+%
+Le panneau centrale montre la chaîne de pendule. Le point de vue se déplace en maintenant le clic de la souris et en déplaçant celle-ci. La molette permet de changer la distance du point de vue.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

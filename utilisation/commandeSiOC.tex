@@ -1,0 +1,47 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{Commandes communes avec SiCF}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+\subsection{Options de la ligne de commande}
+%
+Lorsque le programme est démarré en ligne de commande, il est possible de passer un certain nombre d'options. Ces options sont communiquées au programme à l'aide du nom de l'option suivie d'un nombre. Par exemple pour démarrer SiCP2 avec un nombre de pendules égale à 50 :
+\begin{center}
+\texttt{./SiCP2 nombre 50}
+\end{center}
+%
+Pour démarrer SiCP2 en exploitant plusieurs options :
+\begin{center}
+\texttt{./SiCP2 support 0 pause 7 duree 998 dt 0.0027 nombre 777}
+\end{center}
+%
+\subsubsection{Résumé des options}
+\begin{center}
+\begin{tabular}{cccc}
+option & valeur & clavier & commande \\
+%\hline
+{\texttt dt} & (dt > 0.0 \& dt < DT\_MAX) &  & discrétisation du temps \\
+{\texttt duree} & () & {\sf F9}, {\sf F10}, {\sf F11}, {\sf F12} & rythme de la simulation \\
+{\texttt mode} & () & {\sf Entrée} & Mode -1 : Wait, 1 : Poll \\
+{\texttt nombre} & (nombre > 0 \& nombre < 1099) &  & Nombre de pendules\\
+{\texttt aide} & () &  & Affiche l'aide \\
+{\texttt help} & () &  & Affiche l'aide \\
+\end{tabular}
+\end{center}
+
+{\it
+* Initialise le déphasage entre le dernier pendule et le premier pendule dans le cas des conditions aux limites périodique.
+
+}
+%
+%
+\subsection{Commades du clavier}
+%
+%
+\subsubsection{Variations des paramètres}
+%
+%
+\subsubsection{Enregistrement et réinitialisation des situations}
+%

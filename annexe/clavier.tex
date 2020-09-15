@@ -1,0 +1,228 @@
+%
+\section{Résumé du clavier SiCF et SiCP}
+%
+Le clavier permet de modifier les paramètres physiques. La fenêtre graphique doit être active, le terminal affiche les informations.
+%
+%
+% V1
+%Le clavier permet de modifier les paramètres physiques. La fenêtre graphique doit être active, le terminal affiche les informations.
+\footnotesize
+\begin{center}
+\begin{tabular}{cccccccccc}
+%\sffamily
+%\rmfamily
+\sf A &\sf Z &\sf E &\sf R &\sf T &\sf Y &\sf U &\sf I &\sf O &\sf P \\
+Couplage & Masse & Dissip. & supprimD & Gravit. & Phi & Ampl. & impuls. & sinus & Fréquence \\
+\sf Q &\sf S &\sf D &\sf F &\sf G &\sf H &\sf J &\sf K &\sf L &\sf M \\
+moinsC & moinsM & plusD & formeD & moinsG & moins$\Phi$ & moinsA &  & carré & moinsF \\
+\sf W &\sf X &\sf C &\sf V &\sf B &\sf N &  &  &  & \\
+périodique & libres & fixe & ExtAbsD & libFix & fixLib &  &  &  & \\
+\end{tabular}
+\end{center}
+\vspace{.3cm}
+%
+\normalsize
+\begin{itemize}[leftmargin=2cm, label=\ding{32}, itemsep=0pt]%\end{itemize}
+\item Paramètres physiques
+
+\begin{tabular}{ccccc}
+%\sffamily
+%\rmfamily
+\sf A &\sf Z &\sf E &\sf R &\sf T  \\
+Couplage & Masse & Dissip. & supprimD & Gravit.  \\
+\sf Q &\sf S &\sf D &\sf F &\sf G  \\
+moinsC & moinsM & plusD & formeD & moinsG  \\
+ & & & \sf V   & \\
+ & & & ExtAbsD &  \\
+\end{tabular}
+%
+\end{itemize}
+\begin{itemize}[leftmargin=2cm, label=\ding{32}, itemsep=0pt]%\end{itemize}
+\item Conditions aux limites
+
+\hspace{3cm}
+\begin{tabular}{cccccccccc}
+%\sffamily
+%\rmfamily
+ & & & &\sf Y \\
+ & & & & Phi \\
+ & & & &\sf H \\
+ & & & & moins$\Phi$  & & &  & \\
+\sf W &\sf X &\sf C &\sf V &\sf B &\sf N  \\
+périodique & libres & fixe &  & libFix & fixLib  \\
+\end{tabular}
+%
+\end{itemize}
+\begin{itemize}[leftmargin=2cm, label=\ding{32}, itemsep=0pt]%\end{itemize}
+\item Moteur premier pendule
+
+\hspace{9cm}
+\begin{tabular}{ccccc}
+%\sffamily
+%\rmfamily
+\sf U &\sf I &\sf O &\sf P \\
+ Ampl. & impuls. & sinus & Fréquence \\
+\sf J &\sf K &\sf L &\sf M \\
+ moinsA &  & carré & moinsF \\
+\end{tabular}
+%
+\end{itemize}
+%\vspace{.3cm}
+Les touches de fonctions donnent un certain nombre de contrôles et d'information:
+%
+\begin{center}
+\begin{tabular}{ccccc ccccc cc}
+\multicolumn{4}{|c|}{Contrôles} & \multicolumn{4}{c}{Information} & \multicolumn{4}{|c|}{Contrôles}\\
+\sf F1 &\sf F2 &\sf F3 &\sf F4 &\sf F5 &\sf F6 &\sf F7 &\sf F8 &\sf F9 &\sf F10 &\sf F11 &\sf F12 \\
+\multicolumn{4}{|c|}{Équation simulé (SiCF)} & \multicolumn{4}{c}{Énergie, graphe} & \multicolumn{4}{|c|}{Vitesse de la simulation}\\
+\end{tabular}
+\end{center}
+%
+Le choix de l'équation simulée est spécifique à SiCF. {\sf F5} dresse un bilan énergétique. {\sf F6} affiche les paramètres physiques du système
+\begin{center}
+\begin{tabular}{cccccc}
+\sf F1 &\sf F2 &\sf F3 &\sf F4 &\sf F5 &\sf F6\\
+Pendules & Harmoniques & Corde & asymétrique & Énergie & Système \\
+\end{tabular}
+\end{center}
+%
+{\sf F8} permet de modifier  le graphisme de SiCP. {\sf F9} et {\sf F12} modifient rapidement le rythme de la simulation, {\sf F10} et {\sf F11} la modifie modéremment. La touche {\sf Entrée} change le mode avec ou sans attente, en mode avec attente, l'appuie sur une touche permet l'évolution du système.
+\begin{center}
+\begin{tabular}{cccccc}
+\sf F8 &\sf F9 &\sf F10 &\sf F11 &\sf F12 & \sf Entrée \\
+Support (SiCP) & -Sim & -Sim & +Sim & +Sim & mode\\
+\end{tabular}
+\end{center}
+%
+\section{Détails des contrôles}
+%
+%\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+%
+\subsection{Équation simulée}
+%
+Il s'agit d'une spécificité de SiCF. Lorsque le mode asymétrique est activé, les touches {\sf z} et {\sf s} ne change la masse de la corde que pour la moitié droite. 
+%
+\begin{itemize}[leftmargin=2cm, label=\ding{32}, itemsep=0pt]%\end{itemize}
+\item 1: {\bf gravitation} forceRappel = sinus de la position du pendule
+\item 2: {\bf linearisation} forceRappel = proportionnelle à la position du pendule
+\item 3: {\bf corde vibrante} forceRappel = 0
+\item 4: {\bf corde vibrante asymétrique} permet de changer la masse sur une demi-corde.
+\end{itemize}
+%
+\subsection{Paramètres des pendules}
+%
+\begin{itemize}[label=\ding{32}, leftmargin=2cm, itemsep=0pt]
+\item {\bf Couplage} : {\sf a}, {\sf q} : Augmente, diminue le couplage entre les pendules.
+\item {\bf Masse} : {\sf z}, {\sf s} :  Augmente, diminue la masse des pendules.
+\item {\bf Dissipation} : {\sf e}, {\sf d} :  Augmente, diminue les frottements visqueux.
+\item {\bf Gravitation} : {\sf t}, {\sf g} :  Augmente, diminue l'accélération de la gravitation.
+%\item {\bf } : \sf{} : 
+\end{itemize}
+%
+%
+\subsection{Forme de la dissipation}
+%
+La touche {\sf V} supprime les frottements sauf pour les derniers pour lesquels les frottements s'accroissent. Ceci permet d'obtenir une extrémité "absorbante", permettant la simulation d'une corde infinie.
+%
+\begin{itemize}[label=\ding{32}, leftmargin=2cm, itemsep=0pt]
+\item {\bf Supprimer} : {\sf e} : Supprime les frottements visqueux.
+\item {\bf Former} : {\sf f} : Active les frottements visqueux sur toute la chaîne.
+\item {\bf Absorber} : {\sf v} : Active les frottements visqueux sur la fin de la chaîne, crée une extrémité absorbante.
+\end{itemize}
+%
+%
+\subsection{Conditions aux limites}
+%
+\begin{itemize}[label=\ding{32}, leftmargin=2cm, itemsep=0pt]
+\item {\bf Périodique} : {\sf w} : Le dernier pendule est couplé au premier.
+\item {\bf Libres} : {\sf x} : Les deux extrémités sont libres.
+\item {\bf Fixes} : {\sf c} : Les deux extrémités sont fixes.
+\item {\bf libre-fixe} : {\sf b} : Le premier pendule est libre et le dernier pendule est fixe.
+\item {\bf fixe-libre} : {\sf n} : Le premier pendule est fixe et le dernier pendule est libre.
+\end{itemize}
+%
+%
+\subsection{Moteur premier pendule}
+%
+\begin{itemize}[label=\ding{32}, leftmargin=2cm, itemsep=0pt]
+\item {\bf Impulsion} : {\sf i} : Crée une impulsion.
+\item {\bf Sinus} : {\sf o} : Active, désactive le moteur sinusoïdale.
+\item {\bf Sinus} : {\sf l} : Active le moteur carré.
+\item {\bf Amplitude} : {\sf u, j} :  Augmente, diminue l'amplitude du moteur.
+\item {\bf Fréquence} : {\sf p, m} :  Augmente, diminue la fréquence du moteur.
+\end{itemize}
+%
+%
+\subsection{Moteur Josephson}
+%
+\begin{itemize}[label=\ding{32}, leftmargin=2cm, itemsep=0pt]
+\item {\bf Activation} : $\rightarrow$ : Crée, supprime un courant josephson.
+\item {\bf Amplitude} : $\mathtt{\uparrow}$, $\mathsf{\downarrow}$ : Augmente, diminue le courant.
+\item {\bf Sens} : {\sf $\leftarrow$} : Inverse le sens du courant josephson.
+%\item {\bf } : \sf{} : 
+\end{itemize}
+%
+%
+\subsection{Contrôle de la simulation}
+%
+{\sf F9} et {\sf F12} modifient rapidement la vitesse de la simulation, {\sf F10} et {\sf F11} la modifient modéremment. La touche {\sf Entrée} change le mode avec ou sans attente, en mode avec attente, l'appuie sur une touche permet l'évolution du système.
+%
+\begin{itemize}[label=\ding{32}, leftmargin=2cm, itemsep=0pt]
+\item {\bf Mode} : {\sf Entrée} : Change le mode de la simulation : évolution automatique ou pas à pas.
+\item {\bf Accélèrer} : {\sf 11} et {\sf F12} : Accélère la simulation.
+\item {\bf Ralentir} : {\sf F9} et {\sf F10} : Ralentit la simulation.
+\end{itemize}
+%
+%
+\subsection{Information}
+\begin{itemize}[label=\ding{32}, leftmargin=2cm, itemsep=0pt]
+\item {\bf Énergie} : {\sf F5} : Information énergétique de la chaîne.
+\item {\bf Système} : {\sf F6} : Affiche les paramètres physiques du système.
+%\item {\bf } : \sf{F7} : 
+%\item {\bf } : \sf{F8} : 
+\end{itemize}
+%
+\subsection{Sauvegarde et ré-initialisation dans SiCF}
+%
+Cette fonctionnalité nécessite la présence du répertoire {\texttt donnee/enregistrement} dans le répertoire de l'exécutable.
+La touche majuscule permet d'accéder aux fonctions d'enregistrement et de ré-initialisation des positions des pendules.
+
+Lorsque la touche majuscule est enfoncé, les touches {\sf A}, {\sf Z}, {\sf E}, {\sf R}, {\sf T}, {\sf Y}, {\sf U}, {\sf I}, {\sf O} et {\sf P}, ainsi que les touches {\sf J}, {\sf K}, {\sf L} et {\sf M} ré-initialisent la position de la corde dans différentes configurations préréglées.
+
+Les touches {\sf W}, {\sf X}, {\sf C}, {\sf V}, {\sf B} et {\sf N} enregistrent la position de la corde dans l'état actuel, les touches {\sf Q}, {\sf S}, {\sf D}, {\sf F}, {\sf G} et {\sf H} réinitialisent la position de la corde dans ces états enregistés.
+%
+\subsubsection{Fonction élémentaire}
+%
+\begin{center}
+\begin{tabular}{cc cc}%\multicolumn{4}{|c|}{}\\
+Touche & fonction \\
+A & nulle &\\
+Z & impulsion &\\
+E & triangle&\\
+R & triangle&\\
+T & carré &\\
+Y & carré &\\
+\end{tabular}
+\end{center}
+%
+\subsubsection{Quanton}
+%
+\begin{center}
+\begin{tabular}{cc cc}%\multicolumn{4}{|c|}{}\\
+Touche & fonction \\
+U, J & impulsion &\\
+I, K & impulsion &\\
+O, L & quanton &\\
+P, M & quanton &\\
+\end{tabular}
+\end{center}
+
+\subsubsection{Fichiers de ré-initialisation}
+Les fichiers de ré-initialisation se trouvent dans le répertoire {\texttt donnee/enregistrement}. Ils peuvent être édités. Le nom de ces fichiers doit être respecté afin de pouvoir être ouvert par le programme (ces noms sont utilisés par {\texttt donnees/fichier.c}).
+%
+%\end{itemize}
+%
+%\item {\bf } : \sf{} : 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

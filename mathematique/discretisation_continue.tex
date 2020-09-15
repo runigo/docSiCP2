@@ -1,0 +1,129 @@
+
+%%%%%%%%%%%%%%%%%%%%%
+\section{Discrétisation des équations différentielles}
+%%%%%%%%%%%%%%%%%%%%%
+%
+La discrétisation de l'équation du mouvement se fait à l'aide de l'algorithme de Verlet. Cet algorithme consiste à symétriser la dérivée par rapport au temps puis d'obtenir une expression de $x(t+\dt)$ en fonction de $x(t)$ et $x(t-\dt)$. Cette expression permet de simuler de proche en proche le comportement du système physique. La solution discrète se rapproche de la solution analytique si la valeur de dt est convenablement choisie. En dehors d'un certain encadrement de dt, la solution discrète s'éloigne de la solution analytique.
+%
+\subsection{Discrétisation des dérivées}
+%
+\subsubsection{Dérivé symétrisée}
+Par définition, la dérivé symétrique est :
+\[
+\frac{dx}{\dt}=\frac{x(t+\dt)-x(t-\dt)}{2\dt}
+\]
+On en déduit l'expression suivante de la dérivée seconde :
+\[
+\frac{d^2x}{\dt^2}=\frac{x(t+2\dt)-x(t)-x(t)+x(t-2\dt)}{4\dt^2}
+\]
+Le changement de variable dt' = 2 dt simplifie cette expression :
+\[
+\frac{d^2x}{\dt^2}=\frac{x(t+\dt)-2x(t)+x(t-\dt)}{\dt^2}
+\]
+Une expression disymétrique de la vitesse peut être utilisée pour l'évaluation des forces de viscosité ainsi que pour le calcul de l'énergie cinétique avant le calcul de la nouvelle valeur de $x(t+\dt)$.
+\[
+\frac{dx}{\dt}=\frac{x(t+\dt)-x(t)}{\dt}
+\]
+{\footnotesize Après l'incrémentation, } $\frac{dx}{\dt}=\frac{x(t)-x(t-\dt)}{\dt}$
+%
+\subsection{Discrétisation de la relation fondamentale de la dynamique}
+%
+L'équation de la chaîne de pendules couplés (\ref{barreteau}) donne ici :
+%
+\[
+\frac{x(t+\dt) - 2x(t) + x(t-\dt)}{\dt^2} = - \frac{g}{l} \sin{x(t)}  -  \frac{k}{m} \Delta x(t)  -  \frac{\beta}{ml}\ \frac{x(t) - x(t-\dt)}{\dt}
+\]
+soit
+\[
+x(t+\dt) - 2x(t) + x(t-\dt) = - \frac{g\dt^2}{l} \sin{x(t)}  -  \frac{k\dt^2}{m} \Delta x(t)  -  \frac{\beta \dt}{ml}\ (x(t) - x(t-\dt))
+\]
+ou
+\[
+x(t+\dt) = 2x(t) - x(t-\dt) - \dt^2\frac{g}{l}\sin{x(t)}-\dt^2\frac{k}{m} \Delta x(t) - \dt\frac{\beta}{ml}(x(t)-x(t-\dt))
+\]
+avec
+\[
+\Delta x(t) = (2x[i]-x[i-1]-x[i+1])
+\]
+
+La force de rappel dû au fil de torsion entre les pendules est :
+%
+\[
+f_{torsion} = -  k l \Delta x(t) = -  k l (2x[i]-x[i-1]-x[i+1])
+\]
+%
+L'énergie potentielle entre les pendules n et n-1 est :
+\[
+E_{couplage} = \frac{1}{2}\ k l^2 (x[i]-x[i-1])^2
+\]
+
+La force de rappel dû à la gravitation est :
+%
+\[
+f_{gravitation} = - m g \sin{x(t)}
+\]
+L'énergie potentielle de pesanteur de la masse m est :
+\[
+E_{pp} = m g l (1 - \cos{x(t)})
+\]
+
+La linéarisation de cette dernière force aboutit à une force de rappel harmonique :
+\[
+f_{ressort} = - m g x(t)
+\]
+L'énergie potentielle correspondante est alors:
+\[
+E_{pp} = \frac{1}{2}\ m g l x(t)^2
+\]
+
+Enfin, l'énergie cinétique découle du travail de 
+\[
+m l\ \frac{d^2 x(t)}{\dt^2}
+\]
+%
+Et vaut
+\[
+E_{c} = \frac{1}{2}\ m l (\frac{d x(t)}{\dt})^2 = \frac{m l}{2\dt ^2}\  (x(t)-(x(t-\dt))
+\]
+
+%
+\subsection{Variables réduites}
+%
+Les variables réduites sont sans dimensions. Elles prennent en compte la discrétisation du temps. Le signe prend en compte le caractère « de rappel » des forces.
+%
+\[
+\texttt{alpha} =  - \frac{\beta}{ml}\dt
+\]
+\[
+\texttt{gamma} =  - \frac{g}{l}\dt^2
+\]
+\[
+\texttt{kapa} =  - \frac{k}{m}\dt^2
+\]
+On a alors
+\[
+	\texttt{force}[i] = \texttt{gamma}.sinx + \texttt{kapa}. \Delta x + \texttt{alpha}.(x(t)-x(t-\dt))
+\]
+et
+\[
+	x(t+\dt) = 2 x(t) - x(t-\dt) + \texttt{force}[i]
+\]
+
+
+\subsection{Résumé des forces et des énergies}
+\begin{center}
+\begin{tabular}{ccccc}
+%\multicolumn{4}{|c|}{Contrôles} & \multicolumn{4}{c}{Information} & \multicolumn{4}{|c|}{Contrôles}\\
+ & force & énergie  & \multicolumn{2}{c}{Variables réduites} \\
+torsion & -  k l $\Delta x_n$ & $\frac{1}{2}$ k l$^2 (x_n-x_{n-1})^2$  & -  k l $\Delta x_n$ & $\frac{1}{2}$ k l$^2 (x_n-x_{n-1})^2$ \\
+gravitation & - m g $\sin{x_n}$ & m g l (1 - $\cos{x_n}$)  & - m g $\sin{x_n}$ & m g l (1 - $\cos{x_n}$) \\
+harmonique & - m g $x_n$ & $\frac{1}{2}$ m g l $x_n^2$  & - m g $x_n$ & $\frac{1}{2}$ m g l $x_n^2$ \\
+inertie & m l $\frac{d^2 x_n}{\dt^2}$ & $\frac{1}{2}$ m l$^2$ $(\frac{d x_n}{\dt})^2$  & m l $\frac{d^2 x_n}{\dt^2}$ & $\frac{1}{2}$ m l$^2$ $(\frac{d x_n}{\dt})^2$ \\
+courant & josephson &  & josephson & \\
+\end{tabular}
+\end{center}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,48 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section{SiCF et SiCP}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+Lorsque le programme est démarré en ligne de commande, il est possible de passer un certain nombre d'options. Ces options sont communiquées au programme à l'aide du nom de l'option suivie d'un nombre. Par exemple pour démarrer SiCF avec un fond sombre et une discrétisation du temps égale à 0,00033 seconde :
+\begin{center}
+\texttt{./SiCF fond 17 dt 0.00033}
+\end{center}
+Pour démarrer SiCP avec un fond sombre, un nombre de pendules égale à 50 et trois solitons :
+\begin{center}
+\texttt{./SiCP fond 17 soliton 3 nombre 50}
+\end{center}
+%
+Pour démarrer SiCP en exploitant plusieurs options :
+\begin{center}
+\texttt{./SiCP fond 45 support 0 pause 7 duree 998 dt 0.0027 nombre 777 soliton 18}
+\end{center}
+%
+\subsection{Résumé des options}
+\begin{center}
+\begin{tabular}{cccc}
+option & valeur & clavier & commande \\
+%\hline
+{\texttt fond} & (fond>0 \& fond<255) &  & Couleur du fond ***\\
+{\texttt soliton} & (soliton > -99 \& soliton < 99) & {\sf y},{\sf h} & déphasage entre les extrémitées *\\
+{\texttt dt} & (dt > 0.0 \& dt < DT\_MAX) &  & discrétisation du temps \\
+{\texttt frequence} & () & {\sf p}, {\sf m} & fréquence du générateur \\
+{\texttt dissipation} & () & {\sf e}, {\sf d} & dissipation \\
+{\texttt equation} & (equation > 0 \& equation < 5) & {\sf F1}, {\sf F2}, {\sf F3}, {\sf F4} & choix de l'équation \\
+{\texttt pause} & (pause > 5 || pause < 555) &  & temps de pause en ms \\
+{\texttt duree} & () & {\sf F9}, {\sf F10}, {\sf F11}, {\sf F12} & rythme de la simulation \\
+{\texttt mode} & () & {\sf Entrée} & Mode -1 : Wait, 1 : Poll \\
+{\texttt nombre} & (nombre > 0 \& nombre < 1099) &  & Nombre de pendules **\\
+{\texttt aide} & () &  & Affiche l'aide \\
+{\texttt help} & () &  & Affiche l'aide \\
+\end{tabular}
+\end{center}
+
+{\it
+* Initialise le déphasage entre le dernier pendule et le premier pendule dans le cas des conditions aux limites périodique.
+
+** Spécifique à SiCP, nombre < 399 dans SiCP2.
+
+*** Désactivé dans les versions 2.
+}
+%
