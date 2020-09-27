@@ -1,25 +1,59 @@
 \section{Installation de SiCP2}
 %
-\subsection{Exécutable pour Windows}
+\subsection{Exécutables pour Windows}
 %
-\begin{center}
-\includegraphics[width=.9\textwidth]{./illustration/SiCP2}
-\end{center}
+\subsubsection{Version portable}
 %
-https://github.com/Cphysique/SiCP2/
-https://cphysique.github.io/
+\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+%
+\item Télécharger la version portable sur le site https://cphysique.github.io/
+\item Vérifier le fichier
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+	\item Ouvrir une invite de commande (\texttt{cmd})
+	\item Se déplacer dans le dossier de téléchargement (\texttt{cd Downloads})
+	\item Calculer la somme de contrôle (\texttt{certutil -hashfile SiCP2.4.4.zip SHA256})
+	\item Vérifier la correspondance de la somme calculée avec la somme donnée sur le site.
+	\end{itemize}
+\item Décompresser le fichier (par exemple avec 7-zip https://www.7-zip.org/)
+\item Le répertoire obtenu contient le fichier exécutable et les fichiers nécessaire à l'exécution.
+\item Il est alors possible de déplacer ce répertoire, de créer un lien vers l'exécutable et de changer l'icône du lien en utilisant l'image SiCP2.ico.
+\end{itemize}
+%
+%\begin{center}
+%\includegraphics[width=.9\textwidth]{./illustration/SiCP2}
+%\end{center}
+%
+\subsubsection{Installation automatique}
+%
+\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+%
+\item Télécharger l'installateur sur le site https://cphysique.github.io/
+\item Vérifier le fichier
+	\begin{itemize}[leftmargin=1cm, label=\ding{32}, itemsep=0pt]
+	\item Ouvrir une invite de commande (\texttt{cmd})
+	\item Se déplacer dans le dossier de téléchargement (\texttt{cd Downloads})
+	\item Calculer la somme de contrôle (\texttt{certutil -hashfile setupSiCP2.4.3.exe SHA256})
+	\item Vérifier la correspondance de la somme calculée avec la somme donnée sur le site.
+	\end{itemize}
+\item Exécuter l'installateur, cocher la case \texttt{ajouter un lien sur le bureau}
+\item Il est possible de changer l'icône du lien en utilisant l'image SiCP2.ico contenu dans le répertoire d'installation (\texttt{C/Program Files/SiCP2})
+%
+\end{itemize}
+%
+%
 %
 \subsection{Compilation du code source}
 %
-Le bouton vert de la page 
+Le code source se trouve sur \texttt{https://github.com/Cphysique/SiCP2}
 %
 \begin{center}
-\includegraphics[width=.9\textwidth]{./presentation/CphysiqueSiCP2}
+\includegraphics[width=.6\textwidth]{./presentation/CphysiqueSiCP2}
 \end{center}
 %
+Le bouton vert de la page sur https://github.com/Cphysique/SiCP2/ permet de télécharger le code source.
 %
 \begin{center}
-\includegraphics[width=.9\textwidth]{./presentation/CphysiqueSiCP2code}
+\includegraphics[width=.3\textwidth]{./presentation/CphysiqueSiCP2code}
 \end{center}
 %
 Cette section traite de l'installation des simulateurs SiTS2, SiCF2 et SiCP2 sur un système d'exploitation de type debian. Le téléchargement se fait avec un navigateur internet, la compilation et l'exécution se font dans un terminal. L'installation des outils de compilation nécessite les privilèges du super-utilisateur.
